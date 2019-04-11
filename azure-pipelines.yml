@@ -1,0 +1,13 @@
+jobs:
+- job: 'Win'
+  pool: 
+    vmImage: 'vs2017-win2016'
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.7'
+  - script: |
+      pip install --upgrade pip
+      pip install conan_package_tools
+      conan user
+  - script: python build.py
