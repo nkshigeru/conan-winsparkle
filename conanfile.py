@@ -26,3 +26,8 @@ class WinsparkleConan(ConanFile):
 
     def package_info(self):
         self.cpp_info.libs = ["WinSparkle"]
+
+    def package_id(self):
+        if (self.settings.os == "Windows"):
+            del self.info.settings.compiler
+            del self.info.settings.build_type
